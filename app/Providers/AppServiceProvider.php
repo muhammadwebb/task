@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repository\ApplicationRepository;
+use App\Repository\IApplicationRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,6 +15,8 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($this->app->isLocal()) {
         $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+
+        $this->app->bind(IApplicationRepository::class, ApplicationRepository::class);
     }
     }
 
