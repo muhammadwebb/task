@@ -12,15 +12,39 @@
 
 namespace App\Models{
 /**
+ * App\Models\Answer
+ *
+ * @property int $id
+ * @property int $application_id
+ * @property string $body
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Application $application
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereApplicationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperAnswer {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Application
  *
  * @property int $id
  * @property int $user_id
  * @property string $subject
  * @property string $message
- * @property string $file_url
+ * @property string|null $file_url
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Answer|null $answer
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Application newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Application newQuery()

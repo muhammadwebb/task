@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 @if(is_null($application->file_url))
-                                    <div class="m-8 border p-6 rounded hover:bg-gray-50 transition cursor-pointer flex flex-col items-center">
+                                    <div class="m-7 border p-3 rounded hover:bg-gray-50 transition cursor-pointer flex flex-col items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                         </svg>
@@ -53,6 +53,19 @@
                                 </div>
                                 @endif
                               </div>
+                                @if($application->answer()->exists())
+                                        <hr class="border-b-5">
+                                    <h3 class="font-bold mt-2">Answer</h3>
+                                    <div class="mt-4 mb-6">
+                                      <div class="text-sm text-neutral-600">{{ $application->answer->body }}</div>
+                                    </div>
+                                @else
+                                    <div class="flex justify-end mr-4">
+                                        <a href="{{ route('answer.create', ['application' => $application->id]) }}" class="border border-teal-500 bg-teal-500 text-white rounded-md px-3 py-1 m-2 transition duration-500 ease select-none hover:bg-teal-600 focus:outline-none focus:shadow-outline">
+                                            Answer
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                                 @endforeach
                             </div>
@@ -77,17 +90,19 @@
                                   <div class="mb-4">
                                         <label for="subject"  class="mb-3 block text-base font-medium text-[#07074D]">Subject</label>
                                         <input type="text" required name="subject" id="subject" placeholder="Enter your subject" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
-                                        <label for="message"  class="mb-3 block text-base font-medium text-[#07074D]">Message</label>
+                                        <label for="message"  class="mb-3 block mt-3 text-base font-medium text-[#07074D]">Message</label>
                                         <textarea rows="3" required name="message" id="message" placeholder="Type your message" class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
-                                        <label for="subject" class="mb-3 block text-base font-medium text-[#07074D]">File</label>
+                                        <label for="subject" class="mb-3 mt-3 block text-base font-medium text-[#07074D]">File</label>
                                         <span  class="mb-2 block text-xs  text-[#07074D]">let the file type be docx, pdf</span>
                                         <input type="file" name="file"  id="file" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
                                         @error('file')
                                             <p class="help-block text-danger">{{ $message }}</p>
                                         @enderror
                                   </div>
-                                  <div class="items-center">
-                                      <button class="bg-gradient-to-b w-max mx-auto text-blue-500 font-semibold from-slate-50 to-blue-100 px-10 py-2 rounded-2xl shadow-blue-400 shadow-md border-b-4 hover border-b border-blue-200 hover:shadow-sm transition-all duration-500">Fancy button</button>
+                                  <div class="flex">
+                                      <button class="bg-gradient-to-b w-max mx-auto text-green-500 font-semibold from-slate-50 to-green-100 px-10 py-2 rounded-2xl shadow-green-400 shadow-md border-b-4 hover border-b border-green-200 hover:shadow-sm transition-all duration-500">
+                                          Send
+                                      </button>
                                   </div>
                             </form>
                           </div>

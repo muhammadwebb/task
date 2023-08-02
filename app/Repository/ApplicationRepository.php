@@ -3,11 +3,9 @@
 namespace App\Repository;
 
 use App\Jobs\SendEmailJob;
-use App\Mail\SendApplication;
 use App\Models\Application;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Mail;
 
 class ApplicationRepository implements IApplicationRepository
 {
