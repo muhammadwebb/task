@@ -18,7 +18,8 @@ class ApplicationController extends Controller
 
     public function index()
     {
-        //
+        $user = $this->application->findById(auth()->id());
+        return view('applications.index', ['applications' => $user->applications]);
     }
 
     public function store(StoreARequest $request)

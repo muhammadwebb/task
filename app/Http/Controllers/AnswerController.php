@@ -7,6 +7,11 @@ use App\Models\Application;
 
 class AnswerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:manager');
+    }
+
     public function create(Application $application)
     {
         return view('answer.create', ['application' => $application]);
@@ -19,9 +24,8 @@ class AnswerController extends Controller
             'body' => $request->message
         ]);
 
-
 //        dispatch(new SendAnswerJob($answer));
 
-        return redirect()->back()->with('message', 'Answer sent to client');
+        return redirect('dashboard')->with('message', 'Answer sent to client');
     }
 }

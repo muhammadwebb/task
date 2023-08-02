@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Jobs\SendEmailJob;
 use App\Models\Application;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -16,9 +17,9 @@ class ApplicationRepository implements IApplicationRepository
         return true;
     }
 
-    public function findById($id): Application
+    public function findById($id): User
     {
-        return true;
+        return User::find($id);
     }
 
     public function storeOrUpdate($id = null, $collection = [])
