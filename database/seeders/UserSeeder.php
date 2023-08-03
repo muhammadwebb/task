@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -17,14 +16,7 @@ class UserSeeder extends Seeder
             'role_id' => '1',
             'name' => 'manager',
             'email' => 'manager@gmail.com',
-            'password' => '123',
-        ]);
-
-        User::create([
-            'role_id' => '2',
-            'name' => 'client',
-            'email' => 'client@gmail.com',
-            'password' => '123',
+            'password' => '12345678',
         ]);
     }
 }

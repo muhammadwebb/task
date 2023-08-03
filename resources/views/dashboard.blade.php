@@ -64,7 +64,7 @@
                               </div>
                                 @if($application->answer()->exists())
                                         <hr class="border-b-5">
-                                    <h3 class="font-bold mt-2">Answer</h3>
+                                    <h3 class="font-bold mt-3">Answer</h3>
                                     <div class="mt-4 mb-6">
                                       <div class="text-sm text-neutral-600">{{ $application->answer->body }}</div>
                                     </div>
